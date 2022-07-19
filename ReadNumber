@@ -1,0 +1,7 @@
+procedure ReadNumber(var success: boolean; var result; longint);
+var
+    c:char;
+    res: longint;
+    pos: integer;
+begin
+    res :=

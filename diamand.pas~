@@ -1,0 +1,36 @@
+program diamond;
+procedure PrintSpaces (space	: integer);
+var
+   i : integer;
+   
+begin
+   
+   for i:=1 to space do
+      write (' ');
+end;  
+
+var
+   height,j,k,l,m,n,o	: integer;
+begin
+   repeat
+      writeln ('Vvedite visotu almaza - nechetnoe i neotricatelnoe ');
+      read (height);     
+   until ((height mod 2 =1) or (height >= 0));
+
+   
+   PrintSpaces(height div 2);
+   write ('*');
+
+   for j:=1 to (height div 2) do
+      begin
+	 for k:=1 to (height div 2 - j) do
+	    write (' ');
+	 writeln ('*');
+	 for l:=1 to (1+2*(j-1)) do
+	    write (' ');
+	 writeln ('*');
+      end;
+	 
+end.	 
+      
+   
