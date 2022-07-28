@@ -64,44 +64,63 @@ procedure ReadOsn (var osnovanie :integer );
 { }
 
 var
-   c       : char = ' ';
+   c       : char ;
    success : boolean = false;
 begin
-   while (success = false) do
-        while (c = ' ') do
+   while (not success) do
+   begin
+        osnovanie := 0;
+        c := ' ';
+        while ((c = ' ') or (c = #10)) do
         begin
             read (c);
         end;
-        while (c <> ' ') do
+
+        while ((c <> ' ') and (c <> #10)) do
         begin
-            if (c < '0') or (c > '9') then
+            if ((c < '0') or (c > '9')) then
             begin
                 writeln ('Proverte osnovanie, vvedite korrektno');
                 readln;
                 break;
             end
-            else if (c >= '0') or (c <= '9') then
+            else {if (c >= '0') and (c <= '9') then}
             begin
                 osnovanie := osnovanie * 10 + ord(c) - ord('0');
                 read (c);
-                if (c < '0') or (c > '9') then
+                if ((c = ' ') or (c = #10)) then
+                begin
+                    if ((osnovanie < 2) or (osnovanie > 36)) then
+                    begin
+                       writeln ('Proverte osnovanie, vvedite korrektno');
+                       readln;
+                    end
+                    else
+                    begin
+                       success := true;
+                    end;
+                end
+
+               { else if ((c < '0') or (c > '9')) then
                 begin
                     writeln ('Proverte osnovanie, vvedite korrektno');
                     readln;
+                    break;
                 end
-                else if (c = ' ') then
+                else
                 begin
-                    exit;
-                end;
+                    osnovanie := osnovanie * 10 + ord(c) - ord('0');
+                    read (c);
+                end;}
             end;
-
         end;
-end;
+    end;
+ end;
 
 var
    read_number              : int64;
    number_read_successfully : boolean;
-   radix                    : integer =0 ;
+   radix                    : integer ;
 begin
    repeat
       writeln ('Vvedite osnovanie: 2-36');
