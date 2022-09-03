@@ -49,20 +49,8 @@ var
    end;
    success := true;
  end;
-procedure ReadOsn (var osnovanie :integer );
-{1Считываем символ, если это пробел, то считываем следующий.}
-{2если это не пробел, то проверяем входит ли этот символ в неверный диапазон -}
-{меньше 0 и больше 9, если входит - выводим сообщение о криворукости, завершаем считывание,}
-{почистить строку, предложить ввести основание заново, алгоритм начинается сначала}
-{3 если символ входит в правильный диапазон, то присваиваем этот символ в основание по формуле}
-{считываем следующий символ}
-{3,5 если это символ из неверного диапазона, не считая пробел, выводим сообщение, всё сначала}
-{4 если это пробел, то прекращаем, считаем, что получили основание}
-{конец алгоритма}
-{}
-{ ## tests   1 1; abcd 12;123;   a;  12 ;а м ;  1м ; }
-{ }
 
+procedure ReadOsn (var osnovanie :integer );
 var
    c       : char ;
    success : boolean = false;
@@ -94,24 +82,13 @@ begin
                     begin
                        writeln ('Proverte osnovanie, vvedite korrektno');
                        readln;
+                       break;
                     end
                     else
                     begin
                        success := true;
                     end;
                 end
-
-               { else if ((c < '0') or (c > '9')) then
-                begin
-                    writeln ('Proverte osnovanie, vvedite korrektno');
-                    readln;
-                    break;
-                end
-                else
-                begin
-                    osnovanie := osnovanie * 10 + ord(c) - ord('0');
-                    read (c);
-                end;}
             end;
         end;
     end;
