@@ -6,18 +6,11 @@ var
    result := 0;
    pos := 0;
 
-   {repeat
-      write (1);
-      read(c);
-      pos := pos + 1
-   until (not ((c = ' ') or (c = '\n')));}
-
    while (c = ' ') or (c = #10) do
    begin
       read (c);
       pos := pos + 1
    end;
-   { write (ord(c), ' ', ord('\n')); }
 
 
    while (c <> ' ') and (c<> #10 ) do
@@ -68,7 +61,7 @@ begin
         begin
             if ((c < '0') or (c > '9')) then
             begin
-                writeln ('Proverte osnovanie, vvedite korrektno');
+                writeln ('Proverte osnovanie, Vvedite korrektno');
                 readln;
                 break;
             end
@@ -81,7 +74,10 @@ begin
                     if ((osnovanie < 2) or (osnovanie > 36)) then
                     begin
                        writeln ('Proverte osnovanie, vvedite korrektno');
-                       readln;
+                          if (c = ' ') then
+                          begin
+                             readln;
+                          end;
                        break;
                     end
                     else
@@ -92,7 +88,7 @@ begin
             end;
         end;
     end;
- end;
+end;
 
 var
    read_number              : int64;
