@@ -95,6 +95,18 @@ var
    number_read_successfully : boolean;
    radix                    : integer ;
 begin
+    repeat
+       writeln ('Vvedite osnovanie: 2-36');
+       read (radix);
+    until ((radix >= 2) and (radix <= 36));
+    repeat
+       write('Please, type the number:');
+       ReadNumber(number_read_successfully, read_number, radix);
+    until number_read_successfully;
+    writeln (read_number);
+end.
+
+{begin
    repeat
       writeln ('Vvedite osnovanie: 2-36');
       ReadOsn (radix);
@@ -103,4 +115,4 @@ begin
 
    until number_read_successfully;
    writeln (read_number);
-end.
+end.}
