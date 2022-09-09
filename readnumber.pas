@@ -1,6 +1,6 @@
-procedure ReadNumber (var success: boolean; var result: int64; osnova: integer);
+procedure ReadNumber (var success: boolean; var result: int64; osnova: int64);
 var
-   c   : char = ' ';
+   c :char = ' ';
    pos : integer;
  begin
    result := 0;
@@ -93,12 +93,12 @@ end;
 var
    read_number              : int64;
    number_read_successfully : boolean;
-   radix                    : integer ;
+   radix                    : int64 ;
 begin
     repeat
        writeln ('Vvedite osnovanie: 2-36');
-       read (radix);
-    until ((radix >= 2) and (radix <= 36));
+       ReadNumber(number_read_successfully, radix, 10)
+    until (number_read_successfully and ((radix >=2) and (radix <= 36)));
     repeat
        write('Please, type the number:');
        ReadNumber(number_read_successfully, read_number, radix);
