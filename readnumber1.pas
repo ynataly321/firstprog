@@ -96,15 +96,8 @@ var
    radix                    : int64 ;
 begin
     repeat
-    begin
        writeln ('Vvedite osnovanie: 2-36');
-       ReadNumber(number_read_successfully, radix, 10);
-       if ((radix < 2) or (radix > 36)) then
-       begin
-          writeln ('Oshibka');
-          continue;
-       end;
-    end;
+       ReadNumber(number_read_successfully, radix, 10)
     until (number_read_successfully and ((radix >=2) and (radix <= 36)));
     repeat
        write('Please, type the number:');
