@@ -1,0 +1,41 @@
+program a;
+procedure CountWords (var number : int64);
+var
+   c       : char = 'a' ;
+   success : boolean = false;
+begin
+   number := 0;
+   while (not success) do
+   begin
+      while ((c <> ' ') and (c <> #10 )) do
+      begin
+         read (c);
+      end;
+
+      while ((c = ' ') or (c = #10)) do
+      begin
+         if (c = ' ') then
+         begin
+            number := number + 1;
+            read(c);
+         end
+         else
+         begin
+            number := number + 1;
+            success := true;
+            break;
+         end;
+      end;
+   end;
+end;
+var
+   number_of_words          : int64;
+   words_count_successfully : boolean = true;
+
+begin
+
+      writeln ('Vvedite slova');
+      CountWords (number_of_words);
+      write ('Kolichestvo ');
+      writeln (number_of_words);
+end.

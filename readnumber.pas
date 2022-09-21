@@ -99,7 +99,7 @@ begin
     begin
        writeln ('Vvedite osnovanie: 2-36');
        ReadNumber(number_read_successfully, radix, 10);
-       if ((radix < 2) or (radix > 36)) then
+       if ((not number_read_successfully) or ((radix < 2) or (radix > 36))) then
        begin
           writeln ('Oshibka');
           continue;
